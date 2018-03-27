@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<!-- https://developers.google.com/maps/documentation/javascript/places-autocomplete.-->
+<!-- requires google api key which you can get here: https://developers.google.com/maps/documentation/javascript/libraries -->
+  <head>
+    <title>Place Autocomplete Address Form</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+
+      #map {
+        height: 100%;
+      }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #autocomplete {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 50%;
+        }
+
+      .pac-container:after {
+        background-image: none !important;
+        height: 0px;
+        }
+
+      .search-box{
+        position: absolute;
+        box-sizing: border-box;
+        top: 0px;
+        left: 00px;
+        width: 500px;
+        height: 32px;
+        overflow: visible;
+        }
+
+      .input-box{
+        border: absolute;
+        border: 1px solid rgb(189, 189, 189);
+        background-color: transparent; 
+        box-sizing: border-box; 
+        height: 32px; 
+        width: 500px; 
+        position: relative; 
+        vertical-align: top; 
+        border-radius: 3px; 
+        font-family: Lato; 
+        font-size: 16px; 
+        color: rgb(85, 85, 85); 
+        padding: 0px 10px; 
+        transition: border-color 200ms ease, 
+        box-shadow 200ms ease; 
+        box-shadow: none;
+        }
+
+    </style>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  </head>
+
+  <body>
+
+      <div id="locationField" class = "search-box">
+        <input id="autocomplete" class="input-box" placeholder="Enter your city",type="text"></input>
+      </div>
+
+    <script>
+      var placeSearch, autocomplete;
+      var options = {
+      types: ['(cities)']
+      };
+
+      function initAutocomplete() {
+        autocomplete = new google.maps.places.Autocomplete(
+            (document.getElementById('autocomplete')), options);
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initAutocomplete"
+        async defer></script>
+  </body>
+</html>
